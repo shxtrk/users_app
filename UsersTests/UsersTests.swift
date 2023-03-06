@@ -45,6 +45,7 @@ final class UsersTests: XCTestCase {
 private extension UsersTests {
     private func SUT(for pages: [Page]) -> UsersStore {
         UsersStore(state: .init(pages: pages),
-                   dependency: .init(usersClient: UsersClient.previewValue))
+                   dependency: .init(usersClient: UsersClient.previewValue,
+                                     usersPersistence: UsersPersistence.previewValue))
     }
 }

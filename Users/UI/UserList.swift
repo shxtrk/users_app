@@ -33,7 +33,9 @@ struct UserList: View {
                             }
                         }
                     }
-                    .task { await store.send(.loadPage) }
+                    .task {
+                        await store.send(.loadPage)
+                    }
                 }
             }
             .navigationTitle("Users")
@@ -76,7 +78,8 @@ struct UserRow: View {
 struct UsersList_Previews: PreviewProvider {
     static var previews: some View {
         let state = UsersStore.State(pages: [])
-        let dependency = UsersStore.Dependency(usersClient: UsersClient.previewValue)
+        let dependency = UsersStore.Dependency(usersClient: UsersClient.previewValue,
+                                               usersPersistence: UsersPersistence.previewValue)
         
         UserList()
             .environmentObject(UsersStore(state: state,

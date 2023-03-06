@@ -11,7 +11,7 @@ import SwiftUI
 struct UsersApp: App {
     
     @StateObject private var modelData = UsersStore(state: .init(pages: []),
-                                                    dependency: .init(usersClient: UsersClient.liveValue))
+                                                    dependency: .init(usersClient: UsersClient.liveValue, usersPersistence: UsersPersistence.liveValue))
     
     var body: some Scene {
         WindowGroup {

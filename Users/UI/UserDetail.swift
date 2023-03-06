@@ -55,7 +55,8 @@ struct UserDetail: View {
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let state = UsersStore.State(pages: [])
-        let dependency = UsersStore.Dependency(usersClient: UsersClient.previewValue)
+        let dependency = UsersStore.Dependency(usersClient: UsersClient.previewValue,
+                                               usersPersistence: UsersPersistence.previewValue)
         let user = User(from: UserResponse.mock[0])
         
         UserDetail(user: user, page: 1)
